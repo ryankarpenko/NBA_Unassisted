@@ -1,5 +1,5 @@
-# NBA_Unassisted
-Interactive plot of unassisted field goals vs eFG% for the 2018-19 NBA season
+# NBA_Assisted
+Interactive plot of assisted field goals vs eFG% for the 2018-19 NBA season
 
 Created in August 2019 using RStudio and 'ggplotly' package
 
