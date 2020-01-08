@@ -13,6 +13,8 @@ import pandas as pd
 
 
 p = pd.read_pickle("./ast_plot_stats.pkl")
+teamcolors = pd.read_pickle("./teamcolors.pkl")
+
 
 seasons = pd.DataFrame([{'label': '2018-19', 'value': 2018}, {'label': '2019-20', 'value': 2019}])
 
