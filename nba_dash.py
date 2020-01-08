@@ -15,7 +15,6 @@ import pandas as pd
 p = pd.read_pickle("./ast_plot_stats.pkl")
 teamcolors = pd.read_pickle("./teamcolors.pkl")
 
-
 seasons = pd.DataFrame([{'label': '2018-19', 'value': 2018}, {'label': '2019-20', 'value': 2019}])
 
 # Python
@@ -27,6 +26,8 @@ def flatten(first_item, second_item, list_item):
 sizeref_total = 2. * max(p['FGA_PG']) / (15 ** 2)
 
 app = dash.Dash(__name__)
+
+server = app.server
 
 app.layout = html.Div([
     html.Div([        
