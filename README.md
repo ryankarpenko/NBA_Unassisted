@@ -1,9 +1,9 @@
 # NBA_Assisted
-Interactive plot of assisted field goals vs eFG% for the 2018-19 NBA season
+Interactive plot of assisted field goals vs eFG% for the 2018-19 and 2019-20 NBA seasons
 
-LINK: https://ryankarpenko.github.io/NBA_Assisted
+LINK: https://nba-assisted.herokuapp.com/
 
-Created in August 2019 using RStudio and 'ggplotly' package
+Created in Python using the Dash package for web apps.
 
 Data collected from nba.com/stats
 
