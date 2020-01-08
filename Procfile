@@ -1,1 +1,1 @@
-web: gunicorn app:server --log-file=-
+web: gunicorn nba_dash:server --log-file=-
