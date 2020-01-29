@@ -13,10 +13,10 @@ import pandas as pd
 
 
 #p = pd.read_pickle("./stats-2013-2020.pkl")
-p = pd.read_pickle("/.stats-2013-2020.pkl")
+p = pd.read_pickle("./stats-2013-2020.pkl")
 
 #teamcolors = pd.read_pickle("./teamcolors.pkl")
-teamcolors = pd.read_pickle("/.teamcolors.pkl")
+teamcolors = pd.read_pickle("./teamcolors.pkl")
 
 seasons = pd.DataFrame([{'label': '2013-14', 'value': 2013}, {'label': '2014-15', 'value': 2014}, {'label': '2015-16', 'value': 2015}, {'label': '2016-17', 'value': 2016}, {'label': '2017-18', 'value': 2017}, {'label': '2018-19', 'value': 2018}, {'label': '2019-20', 'value': 2019}])
 
