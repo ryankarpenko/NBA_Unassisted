@@ -12,10 +12,13 @@ from dash.dependencies import Input, Output
 import pandas as pd
 
 
-p = pd.read_pickle("./ast_plot_stats.pkl")
-teamcolors = pd.read_pickle("./teamcolors.pkl")
+#p = pd.read_pickle("./stats-2013-2020.pkl")
+p = pd.read_pickle("C://Users//penko//OneDrive//Documents//GitHub//NBA_Assisted//stats-2013-2020.pkl")
 
-seasons = pd.DataFrame([{'label': '2018-19', 'value': 2018}, {'label': '2019-20', 'value': 2019}])
+#teamcolors = pd.read_pickle("./teamcolors.pkl")
+teamcolors = pd.read_pickle("C://Users//penko//OneDrive//Documents//GitHub//NBA_Assisted//teamcolors.pkl")
+
+seasons = pd.DataFrame([{'label': '2013-14', 'value': 2013}, {'label': '2014-15', 'value': 2014}, {'label': '2015-16', 'value': 2015}, {'label': '2016-17', 'value': 2016}, {'label': '2017-18', 'value': 2017}, {'label': '2018-19', 'value': 2018}, {'label': '2019-20', 'value': 2019}])
 
 # Python
 #teamorder = ['None','ATL','BOS','BKN','CHA','CHI','CLE','DAL','DEN','DET','GSW','HOU','IND','LAC','MEM','MIA','MIL','MIN','NOP','NYK','OKC','ORL','PHI','PHX','POR','SAC','SAS','TOR','UTA','WAS']
@@ -23,7 +26,7 @@ seasons = pd.DataFrame([{'label': '2018-19', 'value': 2018}, {'label': '2019-20'
 def flatten(first_item, second_item, list_item):
     return [val for sublist in [ first_item, second_item, list_item ] for val in sublist]
 
-sizeref_total = 2. * max(p['FGA_PG']) / (15 ** 2)
+sizeref_total = 2. * max(p['fga_pg']) / (15 ** 2)
 
 app = dash.Dash(__name__)
 
@@ -56,7 +59,7 @@ app.layout = html.Div([
                 included=False
             )
         ])
-    ],style={'margin': '0 auto', 'display': 'block', 'width': '15%'})
+    ],style={'margin': '0 auto', 'display': 'block', 'width': '75%'})
 ])
 
 @app.callback(
@@ -65,11 +68,11 @@ app.layout = html.Div([
      Input('team_selection', 'value')])
 
 def update_graph(season_choice, team_choice):
-    df = p[p['SEASON_ID'] == season_choice]
+    df = p[p['season_id'] == season_choice]
 
-    opacity = [ (0.7 if t in team_choice else 0.5) for t in df['TEAM'] ]
+    opacity = [ (0.7 if t in team_choice else 0.5) for t in df['team'] ]
     df['opacity'] = opacity
-    color = [ (player['hex.1'] if player['TEAM'] in team_choice else 'lightgrey') for i,player in df.iterrows() ]
+    color = [ (player['hex.1'] if player['team'] in team_choice else 'lightgrey') for i,player in df.iterrows() ]
     df['mark_color'] = color
     priority_bits = [ (1 if c != 'lightgrey' else 0) for c in color]
     df['priority'] = priority_bits
@@ -78,13 +81,13 @@ def update_graph(season_choice, team_choice):
 
     return {
         'data': [dict(
-            x = df['PctFgAst'],
-            y = df['EFGP'],
+            x = df['pct_fgm_ast'],
+            y = df['efg_pct'],
             title = 'Assisted Field Goals vs. Efficiency',
-            text = df['PLAYER'],
+            text = df['player'],
             mode='markers',
             marker={
-                'size': df['FGA_PG'],
+                'size': df['fga_pg'],
                 'sizemode': 'area',
                 'opacity': df['opacity'],
                 'sizeref': sizeref_total,
