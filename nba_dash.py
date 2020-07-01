@@ -83,7 +83,7 @@ def update_graph(season_choice, team_choice):
         'data': [dict(
             x = df['pct_fgm_ast'],
             y = df['efg_pct'],
-            title = 'Assisted Field Goals vs. Efficiency',
+            title = 'Assisted Field Goals vs. Efficiency<br><span style="font-size:0.75em">Bubble Size: FGA Per Game</span></br>',
             text = df['player'],
             mode='markers',
             marker={
@@ -103,7 +103,7 @@ def update_graph(season_choice, team_choice):
                 'range': [8,102]
             },
             yaxis={
-                'title': 'Effective Field Goal Percentage',
+                'title': 'Effective Field Goal Percentage (eFG%)',
                 'type': 'linear',
                 'range': [30,75]
             },
