@@ -83,7 +83,7 @@ def update_graph(season_choice, team_choice):
         'data': [dict(
             x = df['pct_fgm_ast'],
             y = df['efg_pct'],
-            title = 'Assisted Field Goals vs. Efficiency<br><span style="font-size:0.75em">Bubble Size: FGA Per Game</span></br>',
+            title = 'Assisted Field Goals vs. Efficiency',
             text = df['player'],
             mode='markers',
             marker={
@@ -96,7 +96,7 @@ def update_graph(season_choice, team_choice):
             }
         )],
         'layout': dict(
-            title={'text': 'Assisted Field Goals vs. Efficiency'},
+            title={'text': 'Assisted Field Goals vs. Efficiency<br><span style="font-size:0.75em">Bubble Size: FGA Per Game</span></br>'},
             xaxis={
                 'title': 'Percent of Field Goals Assisted',
                 'type': 'linear',
