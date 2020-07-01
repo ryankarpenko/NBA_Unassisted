@@ -96,14 +96,14 @@ def update_graph(season_choice, team_choice):
             }
         )],
         'layout': dict(
-            title={'text': 'Assisted Field Goals vs. Efficiency'},
+            title={'text': 'Assisted Field Goals vs. Efficiency<br><span style="font-size:0.75em">Bubble Size: FGA Per Game</span></br>'},
             xaxis={
                 'title': 'Percent of Field Goals Assisted',
                 'type': 'linear',
                 'range': [8,102]
             },
             yaxis={
-                'title': 'Effective Field Goal Percentage',
+                'title': 'Effective Field Goal Percentage (eFG%)',
                 'type': 'linear',
                 'range': [30,75]
             },
